@@ -1,0 +1,6 @@
+authtoken: "2gMcYQchMO8tCmRQX7mVh0SJewd_5P4jiygeLKr6QW6nHLZZ8"
+tunnels:
+  streamlit:
+    addr: 8501
+  other_tunnel:
+    addr: 5000
