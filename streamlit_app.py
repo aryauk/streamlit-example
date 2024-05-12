@@ -1,10 +1,8 @@
-# streamlit_app.py
-
 import streamlit as st
 
-# Streamlit app code
-st.title('Backtesting Platform')
-st.write('This is a simple backtesting platform.')
+# Updated Streamlit app code
+st.title('My Backtesting Platform')
+st.write('Welcome to my backtesting platform. This is a simple example of how to use Streamlit.')
 
 # Display some inputs for backtesting parameters
 start_date = st.date_input('Start Date')
