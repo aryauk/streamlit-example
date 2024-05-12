@@ -23,8 +23,30 @@ stop_loss = st.number_input('Universal Stop Loss', min_value=0.0, step=0.01)
 # Add number input for universal profit target
 profit_target = st.number_input('Universal Profit Target', min_value=0.0, step=0.01)
 
+# Leg Builder
+st.subheader('Leg Builder')
+
+legs = []
+
+while st.button('Add Leg'):
+    leg_strike = st.number_input('Strike', min_value=0)
+    leg_strike_type = st.selectbox('Strike Type', ['ATM', 'OTM1', 'OTM2', 'ITM1', 'ITM2'])
+    leg_expiry = st.selectbox('Expiry', ['Current Week', 'Next Week', 'Current Month'])
+    leg_option_type = st.selectbox('Option Type', ['Call', 'Put'])
+    leg_position = st.selectbox('Position', ['Buy', 'Sell'])
+    
+    leg = {
+        'strike': leg_strike,
+        'strike_type': leg_strike_type,
+        'expiry': leg_expiry,
+        'option_type': leg_option_type,
+        'position': leg_position
+    }
+    
+    legs.append(leg)
+
 # Run backtesting logic
 if st.button('Run Backtest'):
     # Assume backtest_logic is your backtesting function
-    result = backtest_logic(start_date, end_date, entry_time, exit_time, lot_size, stop_loss, profit_target)
+    result = backtest_logic(start_date, end_date, entry_time, exit_time, lot_size, stop_loss, profit_target, legs)
     st.write('Backtest Result:', result)
